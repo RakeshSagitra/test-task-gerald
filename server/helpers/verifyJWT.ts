@@ -1,12 +1,7 @@
-import express from "express";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET_KEY } from "../dto/constants";
 
-const verifyJWT = (
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) => {
+const verifyJWT = (req, res, next) => {
   const auth = req.headers["authorization"];
   const jwtToken = auth && auth.split(" ")[1];
 

@@ -1,13 +1,13 @@
-import express from "express";
-import cors from "cors";
-import expressPinoLogger from "express-pino-logger";
-import moment from "moment";
+import express from 'express';
+import cors from 'cors';
+import expressPinoLogger from 'express-pino-logger';
+import moment from 'moment';
 
-import { OTPCode } from "./dto/type";
-import generate2FA from "./helpers/generate2FA";
-import send2FACode from "./helpers/send2FACode";
-import generateJWT from "./helpers/generateJWT";
-import verifyJWT from "./helpers/verifyJWT";
+import { OTPCode } from './dto/type';
+import generate2FA from './helpers/generate2FA';
+import send2FACode from './helpers/send2FACode';
+import generateJWT from './helpers/generateJWT';
+import verifyJWT from './helpers/verifyJWT';
 
 const pino = expressPinoLogger();
 const app = express();
@@ -92,7 +92,7 @@ app.post(
 
     if (twoFACodeData.twoFACode !== twoFACode) {
       return res.status(403).send({
-        messsage: "Incorrect 2FA Code entered, please retry with correct 2FA.",
+        message: "Incorrect 2FA Code entered, please retry with correct 2FA.",
       });
     }
 
